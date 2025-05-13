@@ -10,14 +10,19 @@ Welcome to the backend repository of the **Casa de Fabiano** project! This repos
 - **Language:** JavaScript
 - **Database:** MySQL
 
-##📚 Libraries and Frameworks
+#📚 Libraries and Frameworks
 This project utilizes the following key libraries and frameworks:
 
 Express: A web framework for building RESTful APIs and managing HTTP requests and middleware.
+
 MySQL2: A library for interacting with MySQL databases, supporting promises and prepared statements.
+
 JSON Web Token (jsonwebtoken): Used for creating and verifying JWTs, essential for secure authentication and authorization.
+
 CORS: Middleware to enable Cross-Origin Resource Sharing, allowing API access from different origins.
+
 Dotenv: Loads environment variables from a .env file for secure configuration.
+
 Development Tools
 Nodemon: Automatically restarts the server during development when file changes are detected.
 
