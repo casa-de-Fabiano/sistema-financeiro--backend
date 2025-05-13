@@ -1,11 +1,14 @@
 import express from "express";
 import 'dotenv/config.js';
 import cors from 'cors';
+import con from "./repository/connect.js";
+import addRotas from "./routes.js";
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+const servidor = express();
+servidor.use(cors());
+servidor.use(express.json());
 
+addRotas(servidor)
 
 const porta = process.env.porta;
-app.listen(porta, () => console.log(`configuração inicial`));
+servidor.listen(porta, () => console.log(`configuração inicial `));
