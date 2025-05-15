@@ -1,8 +1,8 @@
 import { gerarTokenJwt } from "../auth/jwt.js";
 import { Router } from "express";
-import { cadastrarUsuarioService, validarEntradaUsuarioService } from "../services/loginService.js";
+import { cadastrarUsuarioService, validarEntradaUsuarioService, verificarUsuarioService } from "../services/loginService.js";
+import { validarCadastroUsuario } from "../validation/loginValidations.js";
 const endpoints = Router();
-
 
 endpoints.post('/entrar', async (req, resp) => {
   try {
@@ -38,4 +38,13 @@ endpoints.post('/criar', async (req, resp) => {
   }
 })
 
+endpoints.get('/consultar/usuario', async (req,resp)=>{
+  try {
+    const id = req.query.id;
+    const usuario = await verificarUsuarioService(id);
+    return resp.send({usuario:id});
+    } catch (error) {
+      return resp.status(400).send({ mensagem: error.message });
+      }
+})
 export default endpoints;
