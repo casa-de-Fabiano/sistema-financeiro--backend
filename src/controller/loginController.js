@@ -25,7 +25,8 @@ endpoints.post('/criar', async (req, resp) => {
     const usuario = {
       idInstituicao: req.body.idInstituicao,
       nome: req.body.usuario,
-      senha: req.body.senha
+      senha: req.body.senha,
+      role: req.body.role
     };
     await validarCadastroUsuario(usuario);
     const id = await cadastrarUsuarioService(usuario);

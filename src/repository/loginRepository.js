@@ -1,16 +1,16 @@
 import con from "./connect.js";
 export async function cadastrarUsuario(usuario) {
   const comando = `
-    INSERT INTO tb_usuario (id_instituicao, nm_usuario, ds_senha ) 
-      VALUES (?,?,?);` //tem que inserir o ID da instituição
+    INSERT INTO tb_usuario (id_instituicao, nm_usuario, ds_senha, ds_role ) 
+      VALUES (?,?,?,?);` //tem que inserir o ID da instituição
   
-  const resposta = await con.query(comando, [usuario.idInstituicao, usuario.nome, usuario.senha])
+  const resposta = await con.query(comando, [usuario.idInstituicao, usuario.nome, usuario.senha, usuario.role])
   return resposta[0].insertId;
 }
 
 export async function entrarUsuario(usuario) {
   const comando = `
-    SELECT id_usuario	id, id_instituicao, nm_usuario	usuario, ds_senha	senha
+    SELECT id_usuario	id, id_instituicao, nm_usuario  usuario, ds_senha	senha, ds_role	role
     FROM tb_usuario 
     WHERE nm_usuario = ? and ds_senha = ?;
   `

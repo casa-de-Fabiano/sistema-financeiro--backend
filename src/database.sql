@@ -10,6 +10,7 @@ create table tb_usuario(
 	id_instituicao int not null,
     nm_usuario varchar(20),
     ds_senha varchar(64),
+    ds_role varchar(30),
     foreign key (id_instituicao) references tb_instituicao(id_instituicao)
 );
 
@@ -35,7 +36,7 @@ create table tb_transferencia(
     vl_transferencia decimal (15,2),
     dt_transferencia datetime,
     ds_observacao varchar (200),
-    file_recibo mediumblob,
+    file_recibo varchar(170),
     id_conta_origem int not null,
     id_conta_destino int not null,
     foreign key (id_conta_origem) references tb_conta(id_conta),
@@ -61,7 +62,7 @@ create table tb_despesas(
     nr_parcelas int,
     dt_despesas date,
     ds_observacao varchar (200),
-    file_recibo mediumblob ,
+    file_recibo varchar(170) ,
     id_conta_origem int not null,
     id_conta_destino int not null,
     foreign key (id_conta_origem) references tb_conta(id_conta),

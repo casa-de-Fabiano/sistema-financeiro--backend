@@ -1,9 +1,7 @@
 import jwt from "jsonwebtoken"
 const KEY = process.env.key
 export function gerarTokenJwt(payload) {
-  return jwt.sign(payload, KEY, {
-    expiresIn: "1hr",
-  });
+  return jwt.sign(payload, KEY);
 }
 
 export function autenticacao(req, resp, next) {

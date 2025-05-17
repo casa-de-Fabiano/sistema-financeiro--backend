@@ -1,4 +1,7 @@
 export async function validarCadastroUsuario(usuario) {
+  if (!usuario.role){
+    throw new Error('O campo role é obrigatório.');
+  }
   if(!usuario.nome){
     throw new Error('O nome do usuário é obrigatório');
   }
