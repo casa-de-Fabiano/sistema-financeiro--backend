@@ -1,9 +1,9 @@
 
 ---
 
-# Casa de Fabiano - Backend
+# Sistema Financeiro - Backend
 
-Welcome to the backend repository of the **Casa de Fabiano** project! This repository contains the logic, validations, and essential functionalities for the backend of the application.
+Welcome to the backend repository of the **Sistema Financeiro** project! This repository contains the logic, validations, and essential functionalities for the backend of the application.
 
 ## 🛠️ Technologies Used
 
@@ -31,7 +31,7 @@ These tools and libraries form the backbone of the backend application, facilita
 
 ## 📖 About the Project
 
-The **Casa de Fabiano** project is an application that (briefly describe the purpose of the project. Example: provides a donation management system, connects volunteers, etc.).
+The **Sistema Financeiro** project is an application that (briefly describe the purpose of the project. Example: provides a donation management system, connects volunteers, etc.).
 
 This repository covers the backend of the application, including:
 
