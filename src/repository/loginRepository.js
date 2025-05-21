@@ -26,3 +26,24 @@ export async function verificarUsuario(id) {
   const resposta = await con.query(comando, [id]);
   return resposta[0][0];
 }
+
+export async function deletarUsuario(id) {
+  const comando = `
+  DELETE FROM tb_usuario WHERE id_usuario = ?;`
+  const resposta = await con.query(comando, [id])
+  return resposta[0];
+}
+
+export async function editarNomeDoUsuario(usuario, id) {
+  const comando = `
+    UPDATE tb_usuario SET nm_usuario = ? WHERE id_usuario = ?;`
+  let resposta = await con.query(comando, [usuario.nome, id])
+  return resposta.affectedRows;
+}
+
+export async function editarSenhaDoUsuario(usuario, id) {
+  const comando = `
+    UPDATE tb_usuario SET ds_senha = ? WHERE id_usuario = ?;`
+  let resposta = await con.query(comando, [usuario.senha, id])
+  return resposta.affectedRows; 
+}

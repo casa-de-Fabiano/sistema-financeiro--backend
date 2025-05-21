@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { cadastrarUsuario, entrarUsuario, verificarUsuario } from "../repository/loginRepository.js";
+import { cadastrarUsuario, deletarUsuario, entrarUsuario, verificarUsuario, editarNomeDoUsuario, editarSenhaDoUsuario } from "../repository/loginRepository.js";
 import { validarCadastroUsuario, validarEntradaUsuario } from "../validation/loginValidations.js";
 
 function criptografarSenhaMD5(senha) {
@@ -28,4 +28,21 @@ export async function verificarUsuarioService(id) {
   const usuario = await verificarUsuario(id)
   if(!usuario) throw new Error("Usuário inválido!");
   
+  return usuario;
 }
+
+export async function  deletarUsuarioService(id) {
+  const resultado = await deletarUsuario(id)
+
+  return resultado     
+}
+
+export async function editarNomeDoUsuarioService(id, nome){
+  const resultado = await editarNomeDoUsuario({nome}, id)
+  return resultado
+} 
+
+export async function editarSenhaDoUsuarioService(id, senha){
+  const resultado = await editarSenhaDoUsuario({senha}, id)
+  return resultado
+} 

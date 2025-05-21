@@ -1,10 +1,9 @@
 import express from "express";
 
-const app = express();
-app.use(express.json())
-
-import loginController from './controller/loginController.js'
+import loginController from './controller/loginController.js';
+import despesasController from './controller/despesasController.js';
 
 export default function addRotas(servidor){
-  servidor.use(loginController)
+  servidor.use(loginController);
+  servidor.use(despesasController);
 }
