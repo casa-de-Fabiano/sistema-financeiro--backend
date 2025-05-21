@@ -46,7 +46,7 @@ This repository covers the backend of the application, including:
 
 Make sure you have the following tools installed:
 
-- [Node.js](https://nodejs.org/) (minimum recommended version: 20.17.0 or +)
+- [Node.js](https://nodejs.org/) (minimum recommended version: 20.11.0 or +)
 - [Git](https://git-scm.com/)
 - [MySQL](https://dev.mysql.com/downloads/workbench/)
 
