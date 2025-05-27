@@ -39,7 +39,7 @@ endpoints.post('/criar', async (req, resp) => {
   }
 })
 
-endpoints.get('/consultar/usuario', async (req, resp) => {
+endpoints.get('/consultar/usuario:id', async (req, resp) => {
   try {
     const id = req.query.id;
     const usuario = await verificarUsuarioService(id);

@@ -1,4 +1,4 @@
-import { adicionarDespesasService, despesasDoMesService, encontrarNomeDaContaService } from "../services/despesasServices.js";
+import { adicionarDespesasService, despesasDoMesService } from "../services/despesasServices.js";
 import { Router } from "express";
 
 const endpoints = Router();
@@ -27,11 +27,13 @@ endpoints.post("/despesas/adicionar", async (req, res) =>{
 endpoints.post("/despesas/mes", async (req, res) =>{
   try {
     const despesas = {
-      dt_despesa1:req.body.dt_despesa1,
-      dt_despesa2:req.body.dt_despesa2,
+      inicio:req.body.dt_despesa1,
+      fim:req.body.dt_despesa2,
     }
     const resposta = await despesasDoMesService(despesas);
-    res.status(200).send({despesas});
+    // Extrair apenas as datas existentes no banco de dados
+    const datasExistentes = resposta.map(despesa => despesa.dt_despesas);
+    res.status(200).send({ datasExistentes });
     } catch (error) {
       return res.status(400).send({ mensagem: error.message });
     }

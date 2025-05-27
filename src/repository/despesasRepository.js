@@ -16,5 +16,5 @@ export async function despesasDoMes(despesas){
   const comando = `
     SELECT * FROM tb_despesas WHERE dt_despesas BETWEEN ? AND ? ORDER BY dt_despesas DESC `;
   const resposta = await con.query(comando, [despesas.inicio, despesas.fim]);
-  return resposta[0][0]
+  return resposta[0]
 }
