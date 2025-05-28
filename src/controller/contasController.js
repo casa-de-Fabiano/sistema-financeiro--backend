@@ -1,4 +1,4 @@
-import { encontrarNomeDaContaService } from "../services/despesasServices.js";
+import { encontrarNomeDaContaService } from "../services/contaServices.js";
 import { Router } from "express";
 
 const endpoints = Router();

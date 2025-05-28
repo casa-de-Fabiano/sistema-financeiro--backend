@@ -1,4 +1,4 @@
-import con from "../repository/connect.js";
+import con from "./connect.js";
 
 // esse endpoint irá ser usado para encontrar o nome da conta, na hora de criar uma nova despesa
 export async function encontrarNomeDaConta(id) {
