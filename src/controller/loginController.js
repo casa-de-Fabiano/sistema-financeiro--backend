@@ -4,7 +4,7 @@ import { cadastrarUsuarioService, validarEntradaUsuarioService, verificarUsuario
 import { validarCadastroUsuario } from "../validation/loginValidations.js";
 const endpoints = Router();
 
-endpoints.post('/entrar', async (req, resp) => {
+endpoints.post('/entrar', async (req, res) => {
   try {
     const usuario = {
       nome: req.body.usuario,
@@ -12,15 +12,15 @@ endpoints.post('/entrar', async (req, resp) => {
     };
     const admin = await validarEntradaUsuarioService(usuario);
     const token = gerarTokenJwt(admin);
-    return resp.send({
+    return res.send({
       token: token
     });
   } catch (error) {
-    return resp.status(400).send({ mensagem: error.message });
+    return res.status(400).send({ mensagem: error.message });
   }
 })
 
-endpoints.post('/criar', async (req, resp) => {
+endpoints.post('/criar', async (req, res) => {
   try {
     const usuario = {
       idInstituicao: req.body.idInstituicao,
@@ -31,54 +31,54 @@ endpoints.post('/criar', async (req, resp) => {
     await validarCadastroUsuario(usuario);
     const id = await cadastrarUsuarioService(usuario);
     const token = gerarTokenJwt({ id });
-    return resp.status(200).send({
+    return res.status(200).send({
       token: token
     });
   } catch (error) {
-    return resp.status(400).send({ mensagem: error.message });
+    return res.status(400).send({ mensagem: error.message });
   }
 })
 
-endpoints.get('/consultar/usuario:id', async (req, resp) => {
+endpoints.get('/consultar/usuario:id', async (req, res) => {
   try {
     const id = req.query.id;
     const usuario = await verificarUsuarioService(id);
-    return resp.status(200).send({ usuario: id });
+    return res.status(200).send({ usuario: id });
   } catch (error) {
-    return resp.status(400).send({ mensagem: error.message });
+    return res.status(400).send({ mensagem: error.message });
   }
 })
 
-endpoints.delete('/usuario/deletar/:id', async (req, resp) => {
+endpoints.delete('/usuario/deletar/:id', async (req, res) => {
   try {
     const id = req.params.id;
 
     let resultado = await deletarUsuarioService(id);
-    return resp.status(204);
+    return res.status(204);
   } catch (error) {
-    return resp.status(400).send({ mensagem: error.message });
+    return res.status(400).send({ mensagem: error.message });
   }
 })
 
-endpoints.put('/usuario/editar/nome/:id', async (req, resp) => {
+endpoints.put('/usuario/editar/nome/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const nome = req.body.nome;
     const resultado = await editarNomeDoUsuarioService(id,nome);
-    return resp.status(200).send({resultado:resultado });
+    return res.status(200).send({resultado:resultado });
   } catch (error) {
-    return resp.status(400).send({ mensagem: error.message });
+    return res.status(400).send({ mensagem: error.message });
   }
 })
 
-endpoints.put('/usuario/editar/senha/:id', async (req,resp)=>{
+endpoints.put('/usuario/editar/senha/:id', async (req,res)=>{
   try {
     const id = req.params.id;
     const senha = req.body.senha;
     const resultado = await editarSenhaDoUsuarioService(id,senha);  
-    return resp.status(200).send({resultado:resultado });
+    return res.status(200).send({resultado:resultado });
   } catch (error) {
-    return resp.status(400).send({ mensagem: error.message });
+    return res.status(400).send({ mensagem: error.message });
   }
 })
 

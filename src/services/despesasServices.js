@@ -1,4 +1,4 @@
-import { adicionarDespesas, despesasDoMes, excluirDespesas, atualizarDespesas } from "../repository/despesasRepository.js";
+import { adicionarDespesas, despesasDoMes, excluirDespesas, atualizarDespesas, alterarArquivoDespesas } from "../repository/despesasRepository.js";
 export async function adicionarDespesasService(despesas) {
   if (!despesas) { throw new Error("Despesas não podem ser vazias") }
   let resultado = await adicionarDespesas(despesas);
@@ -18,5 +18,9 @@ export async function atualizarDespesasService(despesas, id) {
 
   let resultado = await atualizarDespesas(despesas, id);
   return resultado;
-
+}
+export async function alterarArquivoDespesasService(id,caminho) {
+  let linhasAfetadas =  await alterarArquivoDespesas(id, caminho)
+  if (linhasAfetadas === 0) {throw new Error("Nenhum arquivo foi alterado");
+  }
 }

@@ -1,2 +1,6 @@
 .env
 /node_modules
+
+
+#crie a storage de acordo com o README, para armazenar os arquivos através do multer
+/storage 

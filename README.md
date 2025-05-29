@@ -23,6 +23,8 @@ CORS: Middleware to enable Cross-Origin Resource Sharing, allowing API access fr
 
 Dotenv: Loads environment variables from a .env file for secure configuration.
 
+Multer: Handles multipart/form-data requests, useful for file uploads.
+
 Development Tools
 Nodemon: Automatically restarts the server during development when file changes are detected.
 
@@ -111,6 +113,9 @@ src/
 ├── routes.js          # Defines the API routes of the application
 ├── services/          # Contains business logic and service layer functions
 └── validation/        # Handles validation logic for input data
+storage/
+└── reciboDespesas     # Folder that stores expense receipts through multer
+└── reciboTransferencias # Folder that stores transfer receipts through multer
 ```
 
 

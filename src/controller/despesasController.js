@@ -1,5 +1,7 @@
-import { adicionarDespesasService, despesasDoMesService, excluirDespesasService, atualizarDespesasService } from "../services/despesasServices.js";
+import { adicionarDespesasService, despesasDoMesService, excluirDespesasService, atualizarDespesasService, alterarArquivoDespesasService } from "../services/despesasServices.js";
 import { Router } from "express";
+
+import multer from "multer";
 
 const endpoints = Router();
 
@@ -66,7 +68,6 @@ endpoints.put("/despesas/atualizar/:id", async (req, res) => {
       parcelas: req.body.parcelas,
       dt_despesas: req.body.dt_despesas,
       observacao: req.body.observacao,
-      recibo: req.body.recibo,
       idContaOrigem: req.body.idContaOrigem,
       idContaDestino: req.body.idContaDestino
     }
@@ -76,6 +77,21 @@ endpoints.put("/despesas/atualizar/:id", async (req, res) => {
     return res.status(400).send({ mensagem: error.message });
   }
 
+})
+
+let uploadFile = multer({dest:'./storage/reciboDespesas'});
+endpoints.put("/despesas/atualizar/:id/recibo", uploadFile.single('recibo'), async (req, res) => {
+  try {
+    const id = req.params.id;
+    const caminhoFile = req.file.path;
+    
+    await alterarArquivoDespesasService(id, caminhoFile);
+
+    res.status(204).send()
+  }
+  catch (error) {
+    return res.status(400).send({ mensagem: error.message });
+  }
 })
 
 export default endpoints;
