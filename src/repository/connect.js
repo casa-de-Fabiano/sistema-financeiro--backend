@@ -1,4 +1,4 @@
-import mysql from 'mysql2/promise';
+import mysql from "mysql2/promise";
 import "dotenv/config"
 
 const con = await mysql.createConnection({
@@ -8,10 +8,10 @@ const con = await mysql.createConnection({
   database: process.env.mysql_db,
   typeCast: function (field, next) {
 
-    if (field.type === 'TINY' && field.length === 1) {
-      return (field.string() === '1');
+    if (field.type === "TINY" && field.length === 1) {
+      return (field.string() === "1");
     }
-    else if (field.type.includes('DECIMAL')) {
+    else if (field.type.includes("DECIMAL")) {
       return Number(field.string());
     }
     else {
@@ -21,5 +21,5 @@ const con = await mysql.createConnection({
   }
 })
 
-console.log('acesso liberado no ' + process.env.mysql_db)
+console.log("acesso liberado no " + process.env.mysql_db)
 export default con

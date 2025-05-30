@@ -1,9 +1,9 @@
-import crypto from 'crypto';
+import crypto from "crypto";
 import { cadastrarUsuario, deletarUsuario, entrarUsuario, verificarUsuario, editarNomeDoUsuario, editarSenhaDoUsuario } from "../repository/loginRepository.js";
 import { validarCadastroUsuario, validarEntradaUsuario } from "../validation/loginValidations.js";
 
 function criptografarSenhaMD5(senha) {
-  return crypto.createHash('md5').update(senha).digest('hex');
+  return crypto.createHash("md5").update(senha).digest("hex");
 }
 
 export async function cadastrarUsuarioService(usuario) {

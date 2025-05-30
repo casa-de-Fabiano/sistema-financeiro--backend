@@ -1,11 +1,11 @@
 import { adicionarDespesas, despesasDoMes, excluirDespesas, atualizarDespesas, alterarArquivoDespesas } from "../repository/despesasRepository.js";
 export async function adicionarDespesasService(despesas) {
-  if (!despesas) { throw new Error("Despesas não podem ser vazias") }
+  if (!despesas) throw new Error("Despesas não podem ser vazias") 
   let resultado = await adicionarDespesas(despesas);
   return resultado;
 }
 export async function despesasDoMesService(despesas) {
-  if (!despesas) { throw new Error("Despesas não podem ser vazias") }
+  if (!despesas) throw new Error("Despesas não podem ser vazias") 
   let resultado = await despesasDoMes(despesas);
   return resultado;
 }

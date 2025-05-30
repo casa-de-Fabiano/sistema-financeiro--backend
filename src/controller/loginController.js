@@ -4,7 +4,7 @@ import { cadastrarUsuarioService, validarEntradaUsuarioService, verificarUsuario
 import { validarCadastroUsuario } from "../validation/loginValidations.js";
 const endpoints = Router();
 
-endpoints.post('/entrar', async (req, res) => {
+endpoints.post("/entrar", async (req, res) => {
   try {
     const usuario = {
       nome: req.body.usuario,
@@ -20,7 +20,7 @@ endpoints.post('/entrar', async (req, res) => {
   }
 })
 
-endpoints.post('/criar', async (req, res) => {
+endpoints.post("/criar", async (req, res) => {
   try {
     const usuario = {
       idInstituicao: req.body.idInstituicao,
@@ -39,7 +39,7 @@ endpoints.post('/criar', async (req, res) => {
   }
 })
 
-endpoints.get('/consultar/usuario:id', async (req, res) => {
+endpoints.get("/consultar/usuario:id", async (req, res) => {
   try {
     const id = req.query.id;
     const usuario = await verificarUsuarioService(id);
@@ -49,7 +49,7 @@ endpoints.get('/consultar/usuario:id', async (req, res) => {
   }
 })
 
-endpoints.delete('/usuario/deletar/:id', async (req, res) => {
+endpoints.delete("/usuario/deletar/:id", async (req, res) => {
   try {
     const id = req.params.id;
 
@@ -60,7 +60,7 @@ endpoints.delete('/usuario/deletar/:id', async (req, res) => {
   }
 })
 
-endpoints.put('/usuario/editar/nome/:id', async (req, res) => {
+endpoints.put("/usuario/editar/nome/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const nome = req.body.nome;
@@ -71,7 +71,7 @@ endpoints.put('/usuario/editar/nome/:id', async (req, res) => {
   }
 })
 
-endpoints.put('/usuario/editar/senha/:id', async (req,res)=>{
+endpoints.put("/usuario/editar/senha/:id", async (req,res)=>{
   try {
     const id = req.params.id;
     const senha = req.body.senha;

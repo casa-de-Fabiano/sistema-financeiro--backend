@@ -1,6 +1,6 @@
 import express from "express";
-import 'dotenv/config.js';
-import cors from 'cors';
+import "dotenv/config.js";
+import cors from "cors";
 import addRotas from "./routes.js";
 
 const servidor = express();

@@ -1,6 +1,5 @@
 create database db_cdf;
 use db_cdf;
-drop database db_cdf;
 create table tb_instituicao(
 	id_instituicao int primary key auto_increment,
 	nm_instituicao varchar(255)

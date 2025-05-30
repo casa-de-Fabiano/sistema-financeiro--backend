@@ -20,7 +20,6 @@ endpoints.post("/despesas/adicionar", async (req, res) => {
     }
     const resposta = await adicionarDespesasService(despesas);
     res.status(201).send({ resposta: despesas });
-
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
@@ -79,12 +78,12 @@ endpoints.put("/despesas/atualizar/:id", async (req, res) => {
 
 })
 
-let uploadFile = multer({dest:'./storage/reciboDespesas'});
+let uploadFile = multer({ dest: './storage/reciboDespesas' });
 endpoints.put("/despesas/atualizar/:id/recibo", uploadFile.single('recibo'), async (req, res) => {
   try {
     const id = req.params.id;
     const caminhoFile = req.file.path;
-    
+
     await alterarArquivoDespesasService(id, caminhoFile);
 
     res.status(204).send()

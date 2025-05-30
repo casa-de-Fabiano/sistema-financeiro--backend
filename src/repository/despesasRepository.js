@@ -4,7 +4,7 @@ export async function adicionarDespesas(despesas) {
   const comando = ` 
       INSERT INTO tb_despesas 
       (dt_referencia,  ds_tipo, vl_despesas, nr_parcelas, dt_despesas, ds_observacao, file_recibo, id_conta_origem, id_conta_destino )
-    VALUES (?,?,?,?,?,?,?,?,?)`;
+      VALUES (?,?,?,?,?,?,?,?,?)`;
   const resposta = await con.query(comando, [despesas.referencia, despesas.tipo, despesas.valorDespesa, despesas.parcelas, despesas.dt_despesas, despesas.observacao, despesas.recibo, despesas.idContaOrigem, despesas.idContaDestino]);
   return resposta[0][0];
 }
@@ -32,6 +32,7 @@ export async function atualizarDespesas(id, despesas) {
   const resposta = await con.query(comando, [despesas.referencia, despesas.tipo, despesas.valorDespesa, despesas.parcelas, despesas.dt_despesas, despesas.observacao, despesas.idContaOrigem, despesas.idContaDestino, id]);
   return resposta.affectedRows;
 }
+
 export async function alterarArquivoDespesas (id, caminho){
   const comando = `UPDATE tb_despesas SET file_recibo = ? WHERE id_despesas = ?`
   const resposta = await con.query(comando, [caminho, id])
