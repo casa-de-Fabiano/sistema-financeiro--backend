@@ -57,7 +57,7 @@ Make sure you have the following tools installed:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/casa-de-Fabiano/casa-de-fabiano---backend.git
+   git clone https://github.com/casa-de-Fabiano/sistema-financeiro--backend.git
    ```
 
 2. Navigate to the project directory:
