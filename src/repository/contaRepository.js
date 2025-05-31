@@ -7,4 +7,4 @@ export async function encontrarNomeDaConta(id) {
         where id_conta = ?;`;
   const resposta = await con.query(comando, [id])
   return resposta[0][0]
-}
+};

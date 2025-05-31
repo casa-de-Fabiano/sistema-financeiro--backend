@@ -17,4 +17,4 @@ export async function validarEntradaUsuario(usuario) {
   if (!usuario.senha) {
     throw new Error("Senha é obrigatória");    
   }  
-}
+};

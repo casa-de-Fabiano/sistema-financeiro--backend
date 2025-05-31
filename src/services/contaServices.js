@@ -6,4 +6,4 @@ export async function encontrarNomeDaContaService(id) {
   if (!id) { throw new Error("Conta não encontrada") }
   let resultado = await encontrarNomeDaConta(id);
   return resultado;
-}
+};

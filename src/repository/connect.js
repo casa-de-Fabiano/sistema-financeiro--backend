@@ -19,7 +19,7 @@ const con = await mysql.createConnection({
     }
 
   }
-})
+});
 
 console.log("acesso liberado no " + process.env.mysql_db)
 export default con

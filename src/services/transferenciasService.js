@@ -1,4 +1,4 @@
-import {transferenciasDoMes, adicionarTransferencias, atualizarTransferencias, excluirTransferencias} from "../repository/transferenciaRepository.js";
+import {transferenciasDoMes, alterarArquivoDeTransferencias ,adicionarTransferencias, atualizarTransferencias, excluirTransferencias} from "../repository/transferenciaRepository.js";
 
 export async function adicionarTransferenciasService(transferencias) {
   if(!transferencias) throw new Error("Transferencia não pode estar vazia");
@@ -17,4 +17,8 @@ export async function excluirTransferenciasServices(id) {
 export async function atualizarTransferenciasService(transferencias, id) {
   const resposta = await atualizarTransferencias(transferencias, id);
   return resposta;
+}
+export async function alterarArquivoTransferenciasServices(id, caminho) {
+  let linhasAfetadas = await alterarArquivoDeTransferencias(id, caminho)
+  if (linhasAfetadas === 0) throw new Error("Nenhuma linha foi alterada"); 
 }

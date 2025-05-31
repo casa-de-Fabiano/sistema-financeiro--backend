@@ -23,7 +23,7 @@ endpoints.post("/despesas/adicionar", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 endpoints.post("/despesas/mes", async (req, res) => {
   try {
@@ -45,7 +45,7 @@ endpoints.post("/despesas/mes", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 endpoints.delete("/despesas/excluir/:id", async (req, res) => {
   try {
@@ -55,7 +55,7 @@ endpoints.delete("/despesas/excluir/:id", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 endpoints.put("/despesas/atualizar/:id", async (req, res) => {
   try {
@@ -76,7 +76,7 @@ endpoints.put("/despesas/atualizar/:id", async (req, res) => {
     return res.status(400).send({ mensagem: error.message });
   }
 
-})
+});
 
 let uploadFile = multer({ dest: './storage/reciboDespesas' });
 endpoints.put("/despesas/atualizar/:id/recibo", uploadFile.single('recibo'), async (req, res) => {
@@ -87,10 +87,9 @@ endpoints.put("/despesas/atualizar/:id/recibo", uploadFile.single('recibo'), asy
     await alterarArquivoDespesasService(id, caminhoFile);
 
     res.status(204).send()
-  }
-  catch (error) {
+  }catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 export default endpoints;

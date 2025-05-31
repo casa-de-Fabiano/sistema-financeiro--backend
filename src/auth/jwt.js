@@ -15,6 +15,4 @@ export function autenticacao(req, resp, next) {
   } catch (error) {
     return resp.status(401).end();
   }
-}
-
-
+};

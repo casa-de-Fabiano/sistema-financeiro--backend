@@ -12,6 +12,6 @@ endpoints.get("/conta/nome/:id", async (req, res) => {
     res.status(404).send({mensagem:error.message});
 
   }
-})
+});
 
 export default endpoints;

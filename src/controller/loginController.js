@@ -18,7 +18,7 @@ endpoints.post("/entrar", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 endpoints.post("/criar", async (req, res) => {
   try {
@@ -37,7 +37,7 @@ endpoints.post("/criar", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 endpoints.get("/consultar/usuario:id", async (req, res) => {
   try {
@@ -47,7 +47,7 @@ endpoints.get("/consultar/usuario:id", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 endpoints.delete("/usuario/deletar/:id", async (req, res) => {
   try {
@@ -58,7 +58,7 @@ endpoints.delete("/usuario/deletar/:id", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 endpoints.put("/usuario/editar/nome/:id", async (req, res) => {
   try {
@@ -69,7 +69,7 @@ endpoints.put("/usuario/editar/nome/:id", async (req, res) => {
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 endpoints.put("/usuario/editar/senha/:id", async (req,res)=>{
   try {
@@ -80,6 +80,6 @@ endpoints.put("/usuario/editar/senha/:id", async (req,res)=>{
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
-})
+});
 
 export default endpoints;
