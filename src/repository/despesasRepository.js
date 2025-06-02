@@ -2,7 +2,7 @@ import con from "./connect.js";
 
 export async function adicionarDespesas(despesas) {
   const comando = ` 
-      INSERT INTO tb_despesas 
+      INSERT INTO tb_despesas """
       (dt_referencia,  ds_tipo, vl_despesas, nr_parcelas, dt_despesas, ds_observacao, file_recibo, id_conta_origem, id_conta_destino )
       VALUES (?,?,?,?,?,?,?,?,?)`;
   const resposta = await con.query(comando, [despesas.referencia, despesas.tipo, despesas.valorDespesa, despesas.parcelas, despesas.dt_despesas, despesas.observacao, despesas.recibo, despesas.idContaOrigem, despesas.idContaDestino]);

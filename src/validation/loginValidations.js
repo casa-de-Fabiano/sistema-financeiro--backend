@@ -8,7 +8,7 @@ export async function validarCadastroUsuario(usuario) {
   if (!usuario.senha) {
     throw new Error("Senha é obrigatória");    
   }
-}
+};
 
 export async function validarEntradaUsuario(usuario) {
   if(!usuario.nome){

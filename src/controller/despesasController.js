@@ -19,7 +19,7 @@ endpoints.post("/despesas/adicionar", async (req, res) => {
       idContaDestino: req.body.idContaDestino
     }
     const resposta = await adicionarDespesasService(despesas);
-    res.status(201).send({ resposta: despesas });
+    return res.status(201).send({ resposta: despesas });
   } catch (error) {
     return res.status(400).send({ mensagem: error.message });
   }
